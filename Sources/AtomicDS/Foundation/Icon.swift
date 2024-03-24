@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Icon {
+public enum Icon {
     case add
     case apple
     case arrowDown
@@ -53,7 +53,7 @@ enum Icon {
     case warning
 }
 
-extension Icon {
+public extension Icon {
     var value: Image {
         switch self {
         case .add:
@@ -146,100 +146,13 @@ extension Icon {
     }
 }
 
-extension Icon: CaseIterable { }
-
-extension Icon: CustomDebugStringConvertible {
-    var debugDescription: String {
-        switch self {
-        case .add:
-            return "add"
-        case .apple:
-            return "apple"
-        case .arrowDown:
-            return "arrow-down"
-        case .arrowLeft:
-            return "arrow-left"
-        case .arrowRight:
-            return "arrow-right"
-        case .arrowUp:
-            return "arrow-up"
-        case .camera:
-            return "camera"
-        case .categories:
-            return "categories"
-        case .chat:
-            return "chat"
-        case .check:
-            return "check"
-        case .close:
-            return "close"
-        case .create:
-            return "create"
-        case .delete:
-            return "delete"
-        case .edit:
-            return "edit"
-        case .energy:
-            return "energy"
-        case .explore:
-            return "explore"
-        case .eyeInvisible:
-            return "eye-invisible"
-        case .eyeVisible:
-            return "eye-visible"
-        case .facebook:
-            return "facebook"
-        case .filter:
-            return "filter"
-        case .google:
-            return "google"
-        case .hamburgerMenu:
-            return "hamburger-menu"
-        case .heartFilled:
-            return "heart-filled"
-        case .heartOutlined:
-            return "heart-outlined"
-        case .image:
-            return "image"
-        case .inbox:
-            return "inbox"
-        case .info:
-            return "info"
-        case .linkedin:
-            return "linkedin"
-        case .minus:
-            return "minus"
-        case .placeholder:
-            return "placeholder"
-        case .play:
-            return "play"
-        case .profile:
-            return "profile"
-        case .search:
-            return "search"
-        case .send:
-            return "send"
-        case .settings:
-            return "settings"
-        case .shoppingBagFilled:
-            return "shopping-bag-filled"
-        case .shoppingBagOutlined:
-            return "shopping-bag-outlined"
-        case .sort:
-            return "sort"
-        case .starFilled:
-            return "star-filled"
-        case .starOutlined:
-            return "star-outlined"
-        case .store:
-            return "store"
-        case .success:
-            return "success"
-        case .warning:
-            return "warning"
-        }
+public extension Image {
+    init(_ icon: Icon) {
+        self = icon.value
     }
 }
+
+extension Icon: CaseIterable { }
 
 #Preview {
     NavigationView {
@@ -251,7 +164,7 @@ extension Icon: CustomDebugStringConvertible {
                         .resizable()
                         .frame(width: 24,
                                height: 24)
-                    Text(icon.debugDescription)
+                    Text(String(describing: icon))
                 }
             }
         }

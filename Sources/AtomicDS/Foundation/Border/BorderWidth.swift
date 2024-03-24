@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum BorderWidth {
+public enum BorderWidth {
     /// Value: 3
     case extraLarge
     /// Value: 2
@@ -20,7 +20,7 @@ enum BorderWidth {
     case extraSmall
 }
 
-extension BorderWidth {
+public extension BorderWidth {
     var value: CGFloat {
         switch self {
         case .extraLarge:
@@ -37,7 +37,7 @@ extension BorderWidth {
     }
 }
 
-extension CGFloat {
+public extension CGFloat {
     init(_ borderWidth: BorderWidth) {
         self = borderWidth.value
     }

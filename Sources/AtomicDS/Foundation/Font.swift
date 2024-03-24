@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Font {
+public enum Font {
     // heading
     /// H1
     case headingExtraLarge
@@ -36,7 +36,7 @@ enum Font {
     case captionMedium
 }
 
-extension Font {
+public extension Font {
     var value: SwiftUI.Font {
         switch self {
         case .headingExtraLarge:
@@ -71,38 +71,9 @@ extension Font {
     }
 }
 
-extension Font: CustomDebugStringConvertible {
-    var debugDescription: String {
-        switch self {
-        case .headingExtraLarge:
-            return "Heading Extra Large"
-        case .headingLarge:
-            return "Heading Large"
-        case .headingMedium:
-            return "Heading Medium"
-        case .headingSmall:
-            return "Heading Small"
-        case .headingExtraSmall:
-            return "Heading Extra Small"
-        case .bodyExtraLarge:
-            return "Body Extra Large"
-        case .bodyLarge:
-            return "Body Large"
-        case .bodyMedium:
-            return "Body Medium"
-        case .bodySmall:
-            return "Body Small"
-        case .bodyExtraSmall:
-            return "Body Extra Small"
-        case .actionLarge:
-            return "Action Large"
-        case .actionMedium:
-            return "Action Medium"
-        case .actionSmall:
-            return "Action Small"
-        case .captionMedium:
-            return "Caption Medium"
-        }
+public extension SwiftUI.Font {
+    init(_ font: Font) {
+        self = font.value
     }
 }
 
@@ -116,7 +87,7 @@ extension Font: CustomDebugStringConvertible {
                          Font.headingSmall,
                          Font.headingExtraSmall],
                         id: \.self) { font in
-                    Text(font.debugDescription)
+                    Text(String(describing: font))
                         .font(font.value)
                 }
             }
@@ -128,7 +99,7 @@ extension Font: CustomDebugStringConvertible {
                          Font.bodySmall,
                          Font.bodyExtraSmall],
                         id: \.self) { font in
-                    Text(font.debugDescription)
+                    Text(String(describing: font))
                         .font(font.value)
                 }
             }
@@ -138,7 +109,7 @@ extension Font: CustomDebugStringConvertible {
                          Font.actionMedium,
                          Font.actionSmall],
                         id: \.self) { font in
-                    Text(font.debugDescription)
+                    Text(String(describing: font))
                         .font(font.value)
                 }
             }
@@ -146,7 +117,7 @@ extension Font: CustomDebugStringConvertible {
             Section("Caption") {
                 ForEach([Font.captionMedium],
                         id: \.self) { font in
-                    Text(font.debugDescription)
+                    Text(String(describing: font))
                         .font(font.value)
                 }
             }

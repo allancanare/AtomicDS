@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Color {
+public enum Color {
     // highlight
     case highlightDarkest
     case highlightDark
@@ -49,7 +49,7 @@ enum Color {
     case clear
 }
 
-extension Color {
+public extension Color {
     var value: SwiftUI.Color {
         switch self {
         case .highlightDarkest:
@@ -108,72 +108,19 @@ extension Color {
     }
 }
 
-extension SwiftUI.Color {
+public extension SwiftUI.Color {
+    init(_ color: Color) {
+        self = color.value
+    }
+}
+
+private extension SwiftUI.Color {
     init(hex: UInt, alpha: Double = 1) {
         self.init(.sRGB,
                   red: Double((hex >> 16) & 0xff) / 255,
                   green: Double((hex >> 08) & 0xff) / 255,
                   blue: Double((hex >> 00) & 0xff) / 255,
                   opacity: alpha)
-    }
-}
-
-extension Color: CustomDebugStringConvertible {
-    var debugDescription: String {
-        switch self {
-        case .highlightDarkest:
-            return "Highlight Darkest"
-        case .highlightDark:
-            return "Highlight Dark"
-        case .highlightMedium:
-            return "Highlight Medium"
-        case .highlightLight:
-            return "Highlight Light"
-        case .highlightLightest:
-            return "Highlight Lightest"
-        case .lightGrayDarkest:
-            return "Light Gray Darkest"
-        case .lightGrayDarkest10:
-            return "Light Gray Darkest 10"
-        case .lightGrayDark:
-            return "Light Gray Dark"
-        case .lightGrayMedium:
-            return "Light Gray Medium"
-        case .lightGrayLight:
-            return "Light Gray Light"
-        case .lightGrayLightest:
-            return "Light Gray Lightest"
-        case .darkGrayDarkest:
-            return "Dark Gray Darkest"
-        case .darkGrayDark:
-            return "Dark Gray Dark"
-        case .darkGrayMedium:
-            return "Dark Gray Medium"
-        case .darkGrayLight:
-            return "Dark Gray Light"
-        case .darkGrayLightest:
-            return "Dark Gray Lightest"
-        case .successDark:
-            return "Success Dark"
-        case .successMedium:
-            return "Success Medium"
-        case .successLight:
-            return "Success Light"
-        case .warningDark:
-            return "Warning Dark"
-        case .warningMedium:
-            return "Warning Medium"
-        case .warningLight:
-            return "Warning Light"
-        case .errorDark:
-            return "Error Dark"
-        case .errorMedium:
-            return "Error Medium"
-        case .errorLight:
-            return "Error Light"
-        case .clear:
-            return "Clear"
-        }
     }
 }
 
@@ -191,7 +138,7 @@ extension Color: CustomDebugStringConvertible {
                         color.value
                             .frame(width: 24,
                                    height: 24)
-                        Text(color.debugDescription)
+                        Text(String(describing: color))
                     }
                 }
             }
@@ -207,7 +154,7 @@ extension Color: CustomDebugStringConvertible {
                         color.value
                             .frame(width: 24,
                                    height: 24)
-                        Text(color.debugDescription)
+                        Text(String(describing: color))
                     }
                 }
             }
@@ -223,7 +170,7 @@ extension Color: CustomDebugStringConvertible {
                         color.value
                             .frame(width: 24,
                                    height: 24)
-                        Text(color.debugDescription)
+                        Text(String(describing: color))
                     }
                 }
             }
@@ -237,7 +184,7 @@ extension Color: CustomDebugStringConvertible {
                         color.value
                             .frame(width: 24,
                                    height: 24)
-                        Text(color.debugDescription)
+                        Text(String(describing: color))
                     }
                 }
             }
@@ -251,7 +198,7 @@ extension Color: CustomDebugStringConvertible {
                         color.value
                             .frame(width: 24,
                                    height: 24)
-                        Text(color.debugDescription)
+                        Text(String(describing: color))
                     }
                 }
             }
@@ -265,7 +212,7 @@ extension Color: CustomDebugStringConvertible {
                         color.value
                             .frame(width: 24,
                                    height: 24)
-                        Text(color.debugDescription)
+                        Text(String(describing: color))
                     }
                 }
             }

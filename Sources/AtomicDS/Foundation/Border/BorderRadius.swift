@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum BorderRadius {
+public enum BorderRadius {
     /// Value: 32
     case extraExtraLarge
     /// Value: 24
@@ -24,7 +24,7 @@ enum BorderRadius {
     case extraExtraSmall
 }
 
-extension BorderRadius {
+public extension BorderRadius {
     var value: CGFloat {
         switch self {
         case .extraExtraLarge:
@@ -45,7 +45,7 @@ extension BorderRadius {
     }
 }
 
-extension CGFloat {
+public extension CGFloat {
     init(_ borderRadius: BorderRadius) {
         self = borderRadius.value
     }

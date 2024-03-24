@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum IconSize {
+public enum IconSize {
     /// Value: 32
     case extraExtraLarge
     /// Value: 24
@@ -24,7 +24,7 @@ enum IconSize {
     case extraExtraSmall
 }
 
-extension IconSize {
+public extension IconSize {
     var value: CGFloat {
         switch self {
         case .extraExtraLarge:
@@ -45,7 +45,7 @@ extension IconSize {
     }
 }
 
-extension CGFloat {
+public extension CGFloat {
     init(_ iconSize: IconSize) {
         self = iconSize.value
     }

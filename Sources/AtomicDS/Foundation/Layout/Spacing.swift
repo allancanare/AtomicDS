@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Spacing {
+public enum Spacing {
     /// Value: 32
     case extraExtraLarge
     /// Value: 24
@@ -24,7 +24,7 @@ enum Spacing {
     case extraExtraSmall
 }
 
-extension Spacing {
+public extension Spacing {
     var value: CGFloat {
         switch self {
         case .extraExtraLarge:
@@ -45,7 +45,7 @@ extension Spacing {
     }
 }
 
-extension CGFloat {
+public extension CGFloat {
     init(_ spacing: Spacing) {
         self = spacing.value
     }
