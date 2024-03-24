@@ -109,7 +109,7 @@ public extension Color {
 }
 
 public extension SwiftUI.Color {
-    init(_ color: Color) {
+    init(color: Color) {
         self = color.value
     }
 }

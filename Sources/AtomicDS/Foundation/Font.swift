@@ -72,7 +72,7 @@ public extension Font {
 }
 
 public extension SwiftUI.Font {
-    init(_ font: Font) {
+    init(font: Font) {
         self = font.value
     }
 }

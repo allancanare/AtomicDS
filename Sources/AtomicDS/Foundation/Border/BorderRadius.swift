@@ -46,7 +46,7 @@ public extension BorderRadius {
 }
 
 public extension CGFloat {
-    init(_ borderRadius: BorderRadius) {
+    init(borderRadius: BorderRadius) {
         self = borderRadius.value
     }
 }

@@ -46,7 +46,7 @@ public extension Spacing {
 }
 
 public extension CGFloat {
-    init(_ spacing: Spacing) {
+    init(spacing: Spacing) {
         self = spacing.value
     }
 }

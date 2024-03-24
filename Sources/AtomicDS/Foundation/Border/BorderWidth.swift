@@ -38,7 +38,7 @@ public extension BorderWidth {
 }
 
 public extension CGFloat {
-    init(_ borderWidth: BorderWidth) {
+    init(borderWidth: BorderWidth) {
         self = borderWidth.value
     }
 }

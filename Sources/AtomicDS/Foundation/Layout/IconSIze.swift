@@ -46,7 +46,7 @@ public extension IconSize {
 }
 
 public extension CGFloat {
-    init(_ iconSize: IconSize) {
+    init(iconSize: IconSize) {
         self = iconSize.value
     }
 }

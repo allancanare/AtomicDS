@@ -147,7 +147,7 @@ public extension Icon {
 }
 
 public extension Image {
-    init(_ icon: Icon) {
+    init(icon: Icon) {
         self = icon.value
     }
 }
