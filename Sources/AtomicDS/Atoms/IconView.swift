@@ -64,6 +64,8 @@ public extension IconView {
         // Medium 16 - Dark Gray
         public static let mediumDarkGrayDark = Style(size: .medium,
                                                      color: .darkGrayDark)
+        public static let mediumDarkGrayDarkest = Style(size: .medium,
+                                                        color: .darkGrayDarkest)
         public static let mediumDarkGrayLightest = Style(size: .medium,
                                                          color: .darkGrayLightest)
         
@@ -85,7 +87,9 @@ public extension IconView {
         public static let smallLightGrayLightest = Style(size: .small,
                                                          color: .lightGrayLightest)
         
-        // Extra Small 10 - Dark Gray
+        // Small 12 - Dark Gray
+        public static let smallDarkGrayDarkest = Style(size: .small,
+                                                       color: .darkGrayDarkest)
         public static let smallDarkGrayLightest = Style(size: .small,
                                                         color: .darkGrayLightest)
         
