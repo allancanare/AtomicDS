@@ -22,13 +22,13 @@ public struct TextField: View {
     @FocusState private var isTextFieldFocused: Bool
     
     // MARK: Init
-    init(input: Binding<String>,
-         placeholder: String,
-         title: String? = nil,
-         message: String? = nil,
-         leftIcon: Icon? = nil,
-         isSecure: Bool = false,
-         style: Style) {
+    public init(input: Binding<String>,
+                placeholder: String,
+                title: String? = nil,
+                message: String? = nil,
+                leftIcon: Icon? = nil,
+                isSecure: Bool = false,
+                style: Style) {
         _input = input
         self.placeholder = placeholder
         self.title = title
@@ -111,15 +111,15 @@ public extension TextField {
         let filledBorderColor: Color
         let disabledBorderColor: Color
         
-        static let normal = Style(emptyBorderColor: .lightGrayDarkest,
-                                  typingBorderColor: .highlightDarkest,
-                                  filledBorderColor: .lightGrayDarkest,
-                                  disabledBorderColor: .lightGrayDarkest)
+        public static let normal = Style(emptyBorderColor: .lightGrayDarkest,
+                                         typingBorderColor: .highlightDarkest,
+                                         filledBorderColor: .lightGrayDarkest,
+                                         disabledBorderColor: .lightGrayDarkest)
         
-        static let error = Style(emptyBorderColor: .errorMedium,
-                                 typingBorderColor: .errorMedium,
-                                 filledBorderColor: .errorMedium,
-                                 disabledBorderColor: .lightGrayDarkest)
+        public static let error = Style(emptyBorderColor: .errorMedium,
+                                        typingBorderColor: .errorMedium,
+                                        filledBorderColor: .errorMedium,
+                                        disabledBorderColor: .lightGrayDarkest)
     }
 }
 

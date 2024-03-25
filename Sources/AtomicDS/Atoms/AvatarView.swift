@@ -13,8 +13,8 @@ public struct AvatarView: View {
     let style: Style
     
     // MARK: Init
-    init(url: URL?,
-         style: Style = .medium) {
+    public init(url: URL?,
+                style: Style = .medium) {
         self.url = url
         self.style = style
     }
@@ -56,12 +56,12 @@ public extension AvatarView {
         let cornerRadius: CGFloat
         let size: CGFloat
         
-        static let small = Style(cornerRadius: 16,
-                                 size: 40)
-        static let medium = Style(cornerRadius: 20,
-                                  size: 56)
-        static let large = Style(cornerRadius: 32,
-                                 size: 80)
+        public static let small = Style(cornerRadius: 16,
+                                        size: 40)
+        public static let medium = Style(cornerRadius: 20,
+                                         size: 56)
+        public static let large = Style(cornerRadius: 32,
+                                        size: 80)
     }
 }
 

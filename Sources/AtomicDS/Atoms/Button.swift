@@ -18,11 +18,11 @@ public struct Button: View {
     @Environment(\.isEnabled) private var isEnabled
     
     // MARK: Init
-    init(leftIcon: Icon? = nil,
-         title: String? = nil,
-         rightIcon: Icon? = nil,
-         style: Style,
-         action: @escaping () -> Void) {
+    public init(leftIcon: Icon? = nil,
+                title: String? = nil,
+                rightIcon: Icon? = nil,
+                style: Style,
+                action: @escaping () -> Void) {
         self.leftIcon = leftIcon
         self.title = title
         self.rightIcon = rightIcon

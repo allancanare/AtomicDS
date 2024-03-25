@@ -12,19 +12,17 @@ public struct TextView: View {
     let text: String
     let style: Style
     
+    // MARK: Init
+    public init(_ text: String,
+                style: Style = .default) {
+        self.text = text
+        self.style = style
+    }
+    
     public var body: some View {
         Text(text)
             .font(style.font.value)
             .foregroundColor(style.color.value)
-    }
-}
-
-// MARK: - Custom Init
-public extension TextView {
-    init(_ text: String,
-         style: Style = .default) {
-        self.text = text
-        self.style = style
     }
 }
 

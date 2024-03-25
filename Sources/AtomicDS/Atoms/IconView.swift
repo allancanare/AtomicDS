@@ -12,6 +12,13 @@ public struct IconView: View {
     let icon: Icon
     let style: Style
     
+    // MARK: Init
+    public init(_ icon: Icon,
+                style: Style = .default) {
+        self.icon = icon
+        self.style = style
+    }
+    
     public var body: some View {
         icon.value
             .resizable()
@@ -19,15 +26,6 @@ public struct IconView: View {
             .foregroundColor(style.color?.value)
             .frame(width: style.size.value,
                    height: style.size.value)
-    }
-}
-
-// MARK: - Custom Init
-public extension IconView {
-    init(_ icon: Icon,
-         style: Style = .default) {
-        self.icon = icon
-        self.style = style
     }
 }
 
