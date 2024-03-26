@@ -35,6 +35,7 @@ public struct TextField: View {
         self.message = message
         self.leftIcon = leftIcon
         self.isSecure = isSecure
+        self.isContentVisible = !isSecure
         self.style = style
     }
     
