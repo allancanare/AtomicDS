@@ -44,14 +44,14 @@ public struct TextField: View {
                spacing: .init(spacing: .small)) {
             if let title {
                 TextView(title,
+                         color: .darkGrayDark,
                          style: .headingExtraSmall)
-                .setFontColor(.darkGrayDark)
             }
             textField
             if let message {
                 TextView(message,
+                         color: .darkGrayLightest,
                          style: .bodyExtraSmall)
-                .setFontColor(.darkGrayLightest)
             }
         }
     }
@@ -60,12 +60,14 @@ public struct TextField: View {
         HStack(spacing: .init(spacing: .small)) {
             if let leftIcon {
                 IconView(leftIcon,
-                         style: .mediumDarkGrayLightest)
+                         color: .darkGrayLightest,
+                         style: .medium)
             }
             inputField
             if isSecure {
                 IconView(isContentVisible ? .eyeInvisible : .eyeVisible,
-                         style: .mediumDarkGrayLightest)
+                         color: .darkGrayLight,
+                         style: .medium)
                 .onTapGesture {
                     isContentVisible.toggle()
                 }

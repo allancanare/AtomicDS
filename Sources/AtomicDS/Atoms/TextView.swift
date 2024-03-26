@@ -10,23 +10,22 @@ import SwiftUI
 // MARK: - View
 public struct TextView: View {
     let text: String
+    let color: Color?
     let style: Style
     
     // MARK: Init
     public init(_ text: String,
+                color: Color? = nil,
                 style: Style = .default) {
         self.text = text
+        self.color = color
         self.style = style
     }
     
     public var body: some View {
         Text(text)
             .font(style.font.value)
-    }
-    
-    public func setFontColor(_ color: Color) -> some View {
-        self
-            .foregroundStyle(color.value)
+            .foregroundStyle(color?.value ?? style.defaultColor.value)
     }
 }
 
@@ -34,6 +33,7 @@ public struct TextView: View {
 public extension TextView {
     struct Style {
         let font: Font
+        let defaultColor: Color = .darkGrayDarkest
         
         public static let headingExtraLarge = Style(font: .headingExtraLarge)
         public static let headingLarge = Style(font: .headingLarge)
@@ -53,7 +53,7 @@ public extension TextView {
         
         public static let captionMedium = Style(font: .captionMedium)
         
-        public static let `default` = Style.bodyMedium
+        public static let `default` = bodyMedium
     }
 }
 
@@ -98,7 +98,7 @@ public extension TextView {
                          style: .captionMedium)
             }
         }
-        .navigationTitle("TextView")
+        .navigationTitle("TextViews")
     }
     .preferredColorScheme(.light)
 }

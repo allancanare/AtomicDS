@@ -10,20 +10,23 @@ import SwiftUI
 // MARK: - View
 public struct IconView: View {
     let icon: Icon
+    let color: Color?
     let style: Style
     
     // MARK: Init
     public init(_ icon: Icon,
+                color: Color? = nil,
                 style: Style = .default) {
         self.icon = icon
+        self.color = color
         self.style = style
     }
     
     public var body: some View {
         icon.value
             .resizable()
-            .renderingMode(style.color == nil ? .original : .template)
-            .foregroundColor(style.color?.value)
+            .renderingMode(.template)
+            .foregroundColor(color?.value ?? style.defaultColor.value)
             .frame(width: style.size.value,
                    height: style.size.value)
     }
@@ -33,82 +36,17 @@ public struct IconView: View {
 public extension IconView {
     struct Style {
         let size: IconSize
-        let color: Color?
+        let defaultColor: Color = .highlightDark
         
-        // Extra Large 24 - Highlight
-        public static let extraLargeHighlightDarkest = Style(size: .extraLarge,
-                                                             color: .highlightDarkest)
+        public static let extraExtraLarge = Style(size: .extraExtraLarge)
+        public static let extraLarge = Style(size: .extraLarge)
+        public static let large = Style(size: .large)
+        public static let medium = Style(size: .medium)
+        public static let small = Style(size: .small)
+        public static let extraSmall = Style(size: .extraSmall)
+        public static let extraExtraSmall = Style(size: .extraExtraSmall)
         
-        // Extra Large 24 - Light Gray
-        public static let extraLargeLightGrayLightest = Style(size: .extraLarge,
-                                                              color: .lightGrayLightest)
-        
-        // Large 20 - Highlight
-        public static let largeHighlightDarkest = Style(size: .large,
-                                                        color: .highlightDarkest)
-        
-        // Large 20 - Light Gray
-        public static let largeLightGrayDarkest = Style(size: .large,
-                                                        color: .lightGrayDarkest)
-        public static let largeLightGrayDark = Style(size: .large,
-                                                     color: .lightGrayDark)
-        
-        // Medium 16 - Highlight
-        public static let mediumHighlightDarkest = Style(size: .medium,
-                                                         color: .highlightDarkest)
-        
-        // Medium 16 - Light Gray
-        public static let mediumLightGrayLightest = Style(size: .medium,
-                                                          color: .lightGrayLightest)
-        
-        // Medium 16 - Dark Gray
-        public static let mediumDarkGrayDark = Style(size: .medium,
-                                                     color: .darkGrayDark)
-        public static let mediumDarkGrayDarkest = Style(size: .medium,
-                                                        color: .darkGrayDarkest)
-        public static let mediumDarkGrayLightest = Style(size: .medium,
-                                                         color: .darkGrayLightest)
-        
-        // Small 12 - Highlight
-        public static let smallHighlightDarkest = Style(size: .small,
-                                                        color: .highlightDarkest)
-        public static let smallHighlightDark = Style(size: .small,
-                                                     color: .highlightDark)
-        public static let smallHighlightMedium = Style(size: .small,
-                                                       color: .highlightMedium)
-        
-        // Small 12 - Light Gray
-        public static let smallLightGrayDarkest = Style(size: .small,
-                                                        color: .lightGrayDarkest)
-        public static let smallLightGrayMedium = Style(size: .small,
-                                                       color: .lightGrayMedium)
-        public static let smallLightGrayLight = Style(size: .small,
-                                                      color: .lightGrayLight)
-        public static let smallLightGrayLightest = Style(size: .small,
-                                                         color: .lightGrayLightest)
-        
-        // Small 12 - Dark Gray
-        public static let smallDarkGrayDarkest = Style(size: .small,
-                                                       color: .darkGrayDarkest)
-        public static let smallDarkGrayLightest = Style(size: .small,
-                                                        color: .darkGrayLightest)
-        
-        // Extra Small 10 - Highlight
-        public static let extraSmallHighlightDarkest = Style(size: .extraSmall,
-                                                             color: .highlightDarkest)
-        
-        // Extra Small 10 - Light Gray
-        public static let extraSmallLightGrayDarkest = Style(size: .extraSmall,
-                                                             color: .lightGrayDarkest)
-        public static let extraSmallLightGrayLightest = Style(size: .extraSmall,
-                                                              color: .lightGrayLightest)
-        
-        // Extra Extra Small 8 - Light Gray
-        public static let extraExtraSmallLightGrayLightest = Style(size: .extraExtraSmall,
-                                                                   color: .lightGrayLightest)
-        
-        // Default
-        public static let `default` = mediumDarkGrayDark
+        public static let `default` = medium
     }
 }
 
@@ -116,59 +54,49 @@ public extension IconView {
 #Preview {
     NavigationView {
         List {
-            Section("Extra Large") {
+            HStack {
                 IconView(.heartFilled,
-                         style: .extraLargeHighlightDarkest)
-                IconView(.heartFilled,
-                         style: .extraLargeLightGrayLightest)
+                         style: .extraExtraLarge)
+                Text("Extra Extra Large")
             }
             
-            Section("Large") {
+            HStack {
                 IconView(.heartFilled,
-                         style: .largeHighlightDarkest)
-                IconView(.heartFilled,
-                         style: .largeLightGrayDarkest)
-                IconView(.heartFilled,
-                         style: .largeLightGrayDark)
+                         style: .extraLarge)
+                Text("Extra Large")
             }
             
-            Section("Medium") {
+            HStack {
                 IconView(.heartFilled,
-                         style: .mediumHighlightDarkest)
-                IconView(.heartFilled,
-                         style: .mediumLightGrayLightest)
-                IconView(.heartFilled,
-                         style: .mediumDarkGrayDark)
-                IconView(.heartFilled,
-                         style: .mediumDarkGrayLightest)
+                         style: .large)
+                Text("Large")
             }
             
-            Section("Small") {
+            HStack {
                 IconView(.heartFilled,
-                         style: .smallHighlightDarkest)
-                IconView(.heartFilled,
-                         style: .smallLightGrayDarkest)
-                IconView(.heartFilled,
-                         style: .smallLightGrayLightest)
-                IconView(.heartFilled,
-                         style: .smallDarkGrayLightest)
+                         style: .medium)
+                Text("Medium")
             }
             
-            Section("Extra Small") {
+            HStack {
                 IconView(.heartFilled,
-                         style: .extraSmallHighlightDarkest)
-                IconView(.heartFilled,
-                         style: .extraSmallLightGrayDarkest)
-                IconView(.heartFilled,
-                         style: .extraSmallLightGrayLightest)
+                         style: .small)
+                Text("Small")
             }
             
-            Section("Extra Extra Small") {
+            HStack {
                 IconView(.heartFilled,
-                         style: .extraExtraSmallLightGrayLightest)
+                         style: .extraSmall)
+                Text("Extra Small")
+            }
+            
+            HStack {
+                IconView(.heartFilled,
+                         style: .extraExtraSmall)
+                Text("Extra Extra Small")
             }
         }
         .navigationTitle("IconViews")
     }
-    .preferredColorScheme(.dark)
+    .preferredColorScheme(.light)
 }

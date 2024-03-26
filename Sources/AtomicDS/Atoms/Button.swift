@@ -39,16 +39,18 @@ public struct Button: View {
                     Spacer(minLength: .init(spacing: .small))
                     if let leftIcon = leftIcon {
                         IconView(leftIcon,
-                                 style: isEnabled ? style.iconViewStyle : style.iconViewStyleDisabled)
+                                 color: isEnabled ? style.iconViewColor : style.iconViewColorDisabled,
+                                 style: .small)
                     }
                     if let title = title {
                         TextView(title,
+                                 color: isEnabled ? style.textViewColor : style.textViewColorDisabled,
                                  style: .actionMedium)
-                        .setFontColor(isEnabled ? style.textViewColor : style.textViewColorDisabled)
                     }
                     if let rightIcon = rightIcon {
                         IconView(rightIcon,
-                                 style: isEnabled ? style.iconViewStyle : style.iconViewStyleDisabled)
+                                 color: isEnabled ? style.iconViewColor : style.iconViewColorDisabled,
+                                 style: .small)
                     }
                     Spacer(minLength: .init(spacing: .small))
                 }
@@ -62,8 +64,8 @@ public struct Button: View {
 // MARK: - Style
 public extension Button {
     struct Style {
-        let iconViewStyle: IconView.Style
-        let iconViewStyleDisabled: IconView.Style
+        let iconViewColor: Color
+        let iconViewColorDisabled: Color
         let textViewColor: Color
         let textViewColorDisabled: Color
         let backgroundColor: Color
@@ -72,8 +74,8 @@ public extension Button {
         let borderColorDisabled: Color?
         let borderWidth: BorderWidth?
         
-        public static let primary = Style(iconViewStyle: .smallLightGrayLightest,
-                                          iconViewStyleDisabled: .smallLightGrayLightest,
+        public static let primary = Style(iconViewColor: .lightGrayLightest,
+                                          iconViewColorDisabled: .lightGrayLightest,
                                           textViewColor: .lightGrayLightest,
                                           textViewColorDisabled: .lightGrayLightest,
                                           backgroundColor: .highlightDarkest,
@@ -82,8 +84,8 @@ public extension Button {
                                           borderColorDisabled: nil,
                                           borderWidth: nil)
         
-        public static let secondary = Style(iconViewStyle: .smallHighlightDarkest,
-                                            iconViewStyleDisabled: .smallHighlightMedium,
+        public static let secondary = Style(iconViewColor: .highlightDarkest,
+                                            iconViewColorDisabled: .highlightMedium,
                                             textViewColor: .highlightDarkest,
                                             textViewColorDisabled: .highlightMedium,
                                             backgroundColor: .clear,
@@ -92,8 +94,8 @@ public extension Button {
                                             borderColorDisabled: .highlightMedium,
                                             borderWidth: .medium)
         
-        public static let tertiary = Style(iconViewStyle: .smallHighlightDarkest,
-                                           iconViewStyleDisabled: .smallHighlightMedium,
+        public static let tertiary = Style(iconViewColor: .highlightDarkest,
+                                           iconViewColorDisabled: .highlightMedium,
                                            textViewColor: .highlightDarkest,
                                            textViewColorDisabled: .highlightMedium,
                                            backgroundColor: .clear,
