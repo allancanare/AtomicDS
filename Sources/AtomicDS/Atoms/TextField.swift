@@ -44,12 +44,14 @@ public struct TextField: View {
                spacing: .init(spacing: .small)) {
             if let title {
                 TextView(title,
-                         style: .headingExtraSmallDarkGrayDark)
+                         style: .headingExtraSmall)
+                .setFontColor(.darkGrayDark)
             }
             textField
             if let message {
                 TextView(message,
-                         style: .bodyExtraSmallDarkGrayLightest)
+                         style: .bodyExtraSmall)
+                .setFontColor(.darkGrayLightest)
             }
         }
     }

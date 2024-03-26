@@ -43,7 +43,8 @@ public struct Button: View {
                     }
                     if let title = title {
                         TextView(title,
-                                 style: isEnabled ? style.textViewStyle : style.textViewStyleDisabled)
+                                 style: .actionMedium)
+                        .setFontColor(isEnabled ? style.textViewColor : style.textViewColorDisabled)
                     }
                     if let rightIcon = rightIcon {
                         IconView(rightIcon,
@@ -63,8 +64,8 @@ public extension Button {
     struct Style {
         let iconViewStyle: IconView.Style
         let iconViewStyleDisabled: IconView.Style
-        let textViewStyle: TextView.Style
-        let textViewStyleDisabled: TextView.Style
+        let textViewColor: Color
+        let textViewColorDisabled: Color
         let backgroundColor: Color
         let backgroundColorDisabled: Color
         let borderColor: Color?
@@ -73,8 +74,8 @@ public extension Button {
         
         public static let primary = Style(iconViewStyle: .smallLightGrayLightest,
                                           iconViewStyleDisabled: .smallLightGrayLightest,
-                                          textViewStyle: .actionMediumLightGrayLightest,
-                                          textViewStyleDisabled: .actionMediumLightGrayLightest,
+                                          textViewColor: .lightGrayLightest,
+                                          textViewColorDisabled: .lightGrayLightest,
                                           backgroundColor: .highlightDarkest,
                                           backgroundColorDisabled: .highlightMedium,
                                           borderColor: nil,
@@ -83,8 +84,8 @@ public extension Button {
         
         public static let secondary = Style(iconViewStyle: .smallHighlightDarkest,
                                             iconViewStyleDisabled: .smallHighlightMedium,
-                                            textViewStyle: .actionMediumHighlightDarkest,
-                                            textViewStyleDisabled: .actionMediumHighlightMedium,
+                                            textViewColor: .highlightDarkest,
+                                            textViewColorDisabled: .highlightMedium,
                                             backgroundColor: .clear,
                                             backgroundColorDisabled: .clear,
                                             borderColor: .highlightDarkest,
@@ -93,8 +94,8 @@ public extension Button {
         
         public static let tertiary = Style(iconViewStyle: .smallHighlightDarkest,
                                            iconViewStyleDisabled: .smallHighlightMedium,
-                                           textViewStyle: .actionMediumHighlightDarkest,
-                                           textViewStyleDisabled: .actionMediumHighlightMedium,
+                                           textViewColor: .highlightDarkest,
+                                           textViewColorDisabled: .highlightMedium,
                                            backgroundColor: .clear,
                                            backgroundColorDisabled: .clear,
                                            borderColor: nil,
